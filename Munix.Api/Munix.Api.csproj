@@ -91,13 +91,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Conn.config" />
     <None Include="packages.config" />
+    <Content Include="Setting.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -107,13 +110,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Munix.CrossCutting\Munix.CrossCutting.csproj">
       <Project>{D8E634CC-59EF-4237-ADA5-9FEAF19DD1FD}</Project>
       <Name>Munix.CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Munix.Domain\Munix.Domain.csproj">
+      <Project>{0FBD2437-1834-4C25-952B-BD8AD43BE0D1}</Project>
+      <Name>Munix.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

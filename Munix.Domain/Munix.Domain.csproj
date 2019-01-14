@@ -47,11 +47,22 @@
   <ItemGroup>
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\ICommandHandle.cs" />
+    <Compile Include="Contracts\IConnection.cs" />
+    <Compile Include="Contracts\IEntity.cs" />
+    <Compile Include="Contracts\IQueryHandleMultipleResult.cs" />
+    <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IResult.cs" />
     <Compile Include="Contracts\IQuery.cs" />
     <Compile Include="Contracts\IQueryHandle.cs" />
     <Compile Include="Contracts\IResultCommand.cs" />
+    <Compile Include="Contracts\Repositories\IClientRepository.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Enums\ClientStatus.cs" />
+    <Compile Include="Contracts\ICrudRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\QueryHandle\ClientQueryHandle.cs" />
+    <Compile Include="Queries\Query\GetAllQuery.cs" />
+    <Compile Include="Queries\Result\ClientResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -59,11 +70,8 @@
   <ItemGroup>
     <Folder Include="Commands\Comand\" />
     <Folder Include="Commands\CommandHandle\" />
-    <Folder Include="Contracts\Repositories\" />
     <Folder Include="Contracts\Services\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Queries\QueryHandle\" />
-    <Folder Include="Queries\Query\" />
+    <Folder Include="Queries\Query\Client\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

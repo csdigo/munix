@@ -1,8 +1,13 @@
-﻿using SimpleInjector;
+﻿using Munix.Domain.Contracts.Repositories;
+using Munix.Domain.Queries.QueryHandle;
+using Munix.Infra.Connections;
+using Munix.Infra.Repositories;
+using SimpleInjector;
+using System.Configuration;
 
 namespace Munix.CrossCutting.IoC
 {
-   
+
     public class CustomDependecyResolver
     {
         /// <summary>
@@ -11,7 +16,14 @@ namespace Munix.CrossCutting.IoC
         /// <param name="container"></param>
         public static void Resolve(Container container)
         {
-            
+            // Cliente
+            container.Register<IClientRepository, ClientRepository>();
+            container.Register<ClientQueryHandle>();
+
+            // Conexão
+            container.RegisterInstance(
+                new MunixConnection(ConfigurationManager.ConnectionStrings["MuniXConnectionString"].ConnectionString)
+            );
         }
     }
 }
