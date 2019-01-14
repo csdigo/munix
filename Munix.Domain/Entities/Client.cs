@@ -9,6 +9,9 @@ namespace Munix.Domain.Entities
     public class Client : Notifiable, IEntity
     {
 
+        protected Client()
+        { }
+
         /// <summary>
         /// Criando um cliente
         /// </summary>
@@ -34,6 +37,7 @@ namespace Munix.Domain.Entities
         }
 
         #region Atributos
+
 
         public Guid Id { get; set; }
 

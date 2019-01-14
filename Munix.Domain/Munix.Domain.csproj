@@ -57,6 +57,7 @@
     <Compile Include="Contracts\IResultCommand.cs" />
     <Compile Include="Contracts\Repositories\IClientRepository.cs" />
     <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Entity.cs" />
     <Compile Include="Enums\ClientStatus.cs" />
     <Compile Include="Contracts\ICrudRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
