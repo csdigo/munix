@@ -7,7 +7,9 @@ using Munix.Domain.Queries.Result;
 
 namespace Munix.Domain.Queries.QueryHandle
 {
-    public class ClientQueryHandle : IQueryHandleMultipleResult<GetAllQuery, ClientResult>
+    public class ClientQueryHandle :
+        IQueryHandleMultipleResult<GetAllQuery, ClientResult>,
+        IQueryHandle<GetById, ClientResult>
     {
         IClientRepository _clientRepository;
 
@@ -22,6 +24,19 @@ namespace Munix.Domain.Queries.QueryHandle
             return _clientRepository
                 .GetAll()
                 .Select(x => new ClientResult());
+        }
+
+        public ClientResult Handle(GetById query)
+        {
+            // TODO Colocar o automapper
+            var result = new ClientResult();
+
+            var resulten = _clientRepository
+                .GetById(query.Id);
+
+            return result;
+
+
         }
     }
 }

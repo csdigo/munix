@@ -1,12 +1,14 @@
 ﻿using Munix.Domain.Queries.Query;
 using Munix.Domain.Queries.QueryHandle;
 using Munix.Domain.Queries.Result;
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace Munix.Api.Controllers
 {
-    public class ClientController : ApiController
+    public class ClientController : BaseController
     {
         ClientQueryHandle _queryHandle;
 
@@ -16,15 +18,16 @@ namespace Munix.Api.Controllers
         }
 
         // GET: api/Client
-        public IEnumerable<ClientResult> Get()
+        //[ReturnType] IEnumerable<ClientResult>
+        public HttpResponseMessage Get()
         {
-            return _queryHandle.Handle(new GetAllQuery());
+            return CreateResponse(_queryHandle.Handle(new GetAllQuery()));
         }
 
-        // GET: api/Client/5
-        public string Get(int id)
+        // GET: api/Client/5 
+        public HttpResponseMessage Get(Guid id)
         {
-            return "value";
+            return CreateResponse(_queryHandle.Handle(new GetById(id)));
         }
 
         // POST: api/Client
