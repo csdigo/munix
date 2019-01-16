@@ -1,4 +1,5 @@
 ﻿using Munix.Domain.Contracts;
+using Munix.Infra.Mapping;
 using System.Data.SqlClient;
 
 namespace Munix.Infra.Connections
@@ -7,6 +8,7 @@ namespace Munix.Infra.Connections
     {
         public MunixConnection(string commandConnectionString) : base(commandConnectionString, commandConnectionString)
         {
+            new ClientMap();
         }
     }
 }

@@ -7,13 +7,13 @@ using Munix.Domain.Queries.Result;
 
 namespace Munix.Domain.Queries.QueryHandle
 {
-    public class ClientQueryHandle :
+    public class ClientQueryHandler :
         IQueryHandleMultipleResult<GetAllQuery, ClientResult>,
         IQueryHandle<GetById, ClientResult>
     {
         IClientRepository _clientRepository;
 
-        public ClientQueryHandle(IClientRepository clientRepository)
+        public ClientQueryHandler(IClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
         }

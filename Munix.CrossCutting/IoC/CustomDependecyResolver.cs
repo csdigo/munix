@@ -18,7 +18,7 @@ namespace Munix.CrossCutting.IoC
         {
             // Cliente
             container.Register<IClientRepository, ClientRepository>();
-            container.Register<ClientQueryHandle>();
+            container.Register<ClientQueryHandler>();
 
             // Conexão
             container.RegisterInstance(

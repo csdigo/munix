@@ -8,7 +8,7 @@ namespace Munix.Domain.Entities
 {
     public class Client : Notifiable, IEntity
     {
-
+        // Construtor vazio para o uso do FastCrud e Entity
         protected Client()
         { }
 
@@ -39,7 +39,7 @@ namespace Munix.Domain.Entities
         #region Atributos
 
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public string FirstName { get; private set; }
 
@@ -51,14 +51,29 @@ namespace Munix.Domain.Entities
 
         public DateTime Created { get; private set; }
 
-        public DateTime? Deleted { get; private set; }
+        public DateTime? Deleted { get; private  set; }
 
         public DateTime Updated { get; private set; }
 
+
         #endregion
 
+        internal void Update(string firstName, string lastName, string email)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Updated = DateTime.Now;
 
-        public void Inative()
+            AddNotifications(
+                new ValidationContract()
+                    .IsEmail(email, "Email", "E-mail inválido")
+                    .HasMinLen(FirstName, 2, "FirstName", "O primeiro nome é necessário ter pelo menos 2 letras")
+                    .HasMinLen(LastName, 2, "LastName", "O ultimo nome é necessário ter pelo menos 2 letras")
+            );
+        }
+
+        internal void Inative()
         {
             AddNotifications(
                 new ValidationContract()
@@ -69,7 +84,7 @@ namespace Munix.Domain.Entities
             Status = ClientStatus.Inative;
         }
 
-        public void Delete()
+        internal void Delete()
         {
             AddNotifications(
                new ValidationContract()

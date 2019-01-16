@@ -1,6 +1,6 @@
 ﻿namespace Munix.Domain.Contracts
 {
-    public interface ICommandHandle<TCommand, TResultComand> 
+    public interface ICommandHandler<TCommand, TResultComand> 
         where TCommand : ICommand
         where TResultComand : IResultCommand
 

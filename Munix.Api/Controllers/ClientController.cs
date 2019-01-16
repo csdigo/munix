@@ -1,8 +1,8 @@
-﻿using Munix.Domain.Queries.Query;
+﻿using Munix.Domain.Commands.Command.Client;
+using Munix.Domain.Commands.CommandHandler;
+using Munix.Domain.Queries.Query;
 using Munix.Domain.Queries.QueryHandle;
-using Munix.Domain.Queries.Result;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
 
@@ -10,39 +10,45 @@ namespace Munix.Api.Controllers
 {
     public class ClientController : BaseController
     {
-        ClientQueryHandle _queryHandle;
+        ClientQueryHandler _queryHandler;
+        ClientCommandHandler _commandHandler;
 
-        public ClientController(ClientQueryHandle queryHandle)
+        public ClientController(ClientQueryHandler queryHandle, ClientCommandHandler commandHandler)
         {
-            _queryHandle = queryHandle;
+            _queryHandler = queryHandle;
+            _commandHandler = commandHandler;
         }
 
         // GET: api/Client
         //[ReturnType] IEnumerable<ClientResult>
         public HttpResponseMessage Get()
         {
-            return CreateResponse(_queryHandle.Handle(new GetAllQuery()));
+            return CreateResponse(_queryHandler.Handle(new GetAllQuery()));
         }
 
         // GET: api/Client/5 
         public HttpResponseMessage Get(Guid id)
         {
-            return CreateResponse(_queryHandle.Handle(new GetById(id)));
+            return CreateResponse(_queryHandler.Handle(new GetById(id)));
         }
 
         // POST: api/Client
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]CreateClientCommand value)
         {
+            return CreateResponse(_commandHandler.Handle(value));
         }
 
         // PUT: api/Client/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(Guid id, [FromBody]UpdateClientCommand value)
         {
+            value.SetId(id);
+            return CreateResponse(_commandHandler.Handle(value));
         }
 
         // DELETE: api/Client/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(Guid id)
         {
+            return CreateResponse(_commandHandler.Handle(new DeleteClientCommand(id)));
         }
     }
 }

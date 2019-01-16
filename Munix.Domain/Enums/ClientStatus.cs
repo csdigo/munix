@@ -5,7 +5,7 @@ namespace Munix.Domain.Enums
     public enum ClientStatus
     {
         [Description("Ativo")]
-        Active,
+        Active = 1,
 
         [Description("Inativo")]
         Inative,
