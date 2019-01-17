@@ -1,12 +1,10 @@
-﻿using FluentValidator;
-using FluentValidator.Validation;
-using Munix.Domain.Contracts;
+﻿using FluentValidator.Validation;
 using Munix.Domain.Enums;
 using System;
 
 namespace Munix.Domain.Entities
 {
-    public class Client : Notifiable, IEntity
+    public class Client : Entity
     {
         // Construtor vazio para o uso do FastCrud e Entity
         protected Client()

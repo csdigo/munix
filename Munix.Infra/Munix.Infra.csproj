@@ -55,8 +55,10 @@
     <Compile Include="Connections\Connection.cs" />
     <Compile Include="Connections\MunixConnection.cs" />
     <Compile Include="Mapping\ClientMap.cs" />
+    <Compile Include="Mapping\CurrencyTypeMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
+    <Compile Include="Repositories\CurrencyTypeRepository.cs" />
     <Compile Include="Repositories\FastCrudRepository.cs" />
   </ItemGroup>
   <ItemGroup>
