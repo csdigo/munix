@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munix.CrossCutting", "Munix
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munix.Api", "Munix.Api\Munix.Api.csproj", "{B7916467-70A6-4C8C-B3D7-CBF1E721032A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Dominio", "1 - Dominio", "{BB89FED7-A30C-42F3-A3FE-4A439B78B633}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Domain", "1 - Domain", "{BB89FED7-A30C-42F3-A3FE-4A439B78B633}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infra", "2 - Infra", "{29685B70-77C3-46B2-B929-6DDB66FB13D8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Comum", "3 - Comum", "{06571F5C-5F2A-4650-85EF-46027CB73F49}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Common", "3 - Common", "{06571F5C-5F2A-4650-85EF-46027CB73F49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

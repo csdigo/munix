@@ -7,7 +7,7 @@ namespace Munix.Domain.Entities
     public class CurrencyType : Entity
     {
 
-        #region Construtores
+        #region Constructors 
         protected CurrencyType() { }
         public CurrencyType(string name, string initials, decimal current, string cultureInfoName)
         {
@@ -18,35 +18,30 @@ namespace Munix.Domain.Entities
 
 
             AddNotifications(new ValidationContract()
-                 .HasMinLen(Name, 2, "Name", "O nome da moeda tem que ter pelo menos dois caracteres")
-                 .HasLen(Initials, 3, "Initials", "Sigla inválida")
-                 .IsGreaterThan(Current, 0, "Current", "O valor atual tem que ser maior que zero")
-                 .IsNotNull(CultureInfo.GetCultureInfo(CultureInfoName), "CultureInfoName", "Culture info não encontrado")
+                 .HasMinLen(Name, 2, "Name", "The currency name must be at least two characters")
+                 .HasLen(Initials, 3, "Initials", "Invalid Initials")
+                 .IsGreaterThan(Current, 0, "Current", "The current value must be greater than zero")
+                 .IsNotNull(CultureInfo.GetCultureInfo(CultureInfoName), "CultureInfoName", "Culture info not found")
              );
         }
 
         #endregion
 
-        #region Atributos  
+        #region Attributes  
 
-        /// <summary>
-        /// Nome completo da moeda
-        /// </summary>
+ 
         public string Name { get; set; }
 
         /// <summary>
-        /// Sigla da moeda
+        /// Initials Currency, Ex. USD, BRL
         /// </summary>
         public string Initials { get; set; }
 
         /// <summary>
-        /// Valor atual da moeda
+        /// Current value of currency
         /// </summary>
         public decimal Current { get; set; }
 
-        /// <summary>
-        /// Culture info utilizada para formatação 
-        /// </summary>
         public string CultureInfoName { get; set; }
 
         public DateTime Created { get; set; }
@@ -57,7 +52,7 @@ namespace Munix.Domain.Entities
 
         #endregion
 
-        #region Método
+        #region Method
 
         internal void Delete()
         {
@@ -72,11 +67,11 @@ namespace Munix.Domain.Entities
             CultureInfoName = cultureInfoName;
 
             AddNotifications(new ValidationContract()
-                 .HasMinLen(Name, 2, "Name", "O nome da moeda tem que ter pelo menos dois caracteres")
-                 .HasLen(Initials, 3, "Initials", "Sigla inválida")
-                 .IsGreaterThan(Current, 0, "Current", "O valor atual tem que ser maior que zero")
-                 .IsNotNull(CultureInfo.GetCultureInfo(CultureInfoName), "CultureInfoName", "Culture info não encontrado")
-                 .IsNull(Deleted, "Deleted", "Essa moeda está deletada e não pode ser alterada")
+                .HasMinLen(Name, 2, "Name", "The currency name must be at least two characters")
+                 .HasLen(Initials, 3, "Initials", "Invalid Initials")
+                 .IsGreaterThan(Current, 0, "Current", "The current value must be greater than zero")
+                 .IsNotNull(CultureInfo.GetCultureInfo(CultureInfoName), "CultureInfoName", "Culture info not found")
+                 .IsNull(Deleted, "Deleted", "This currency is deleted and can't be changed")
              );
         }
         #endregion

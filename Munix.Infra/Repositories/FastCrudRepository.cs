@@ -21,7 +21,7 @@ namespace Munix.Infra.Repositories
         }
 
         /// <summary>
-        /// Retornas todos
+        /// Return All
         /// </summary>
         /// <returns></returns>
         public IEnumerable<TEntity> GetAll()
@@ -30,13 +30,12 @@ namespace Munix.Infra.Repositories
         }
 
         /// <summary>
-        /// Retorna todos por id
+        /// Return by Id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public TEntity GetById(Guid id)
         {
-            // TODO Mudar para entidade
             return _connection.Query.Find<TEntity>(x => x.Where($"Id  = @id").WithParameters(new { id })).FirstOrDefault();
         }
 

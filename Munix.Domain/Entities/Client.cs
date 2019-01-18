@@ -6,12 +6,11 @@ namespace Munix.Domain.Entities
 {
     public class Client : Entity
     {
-        // Construtor vazio para o uso do FastCrud e Entity
         protected Client()
         { }
 
         /// <summary>
-        /// Criando um cliente
+        /// Create a new Client
         /// </summary>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
@@ -28,13 +27,13 @@ namespace Munix.Domain.Entities
 
             AddNotifications(
                 new ValidationContract()
-                    .IsEmail(email, "Email", "E-mail inválido")
-                    .HasMinLen(FirstName, 2, "FirstName", "O primeiro nome é necessário ter pelo menos 2 letras")
-                    .HasMinLen(LastName, 2, "LastName", "O ultimo nome é necessário ter pelo menos 2 letras")
+                    .IsEmail(email, "Email", "Invalid E-mail")
+                    .HasMinLen(FirstName, 2, "FirstName", "First name is required at least 2 letters")
+                    .HasMinLen(LastName, 2, "LastName", "Last name is required at least 2 letters")
             );
         }
 
-        #region Atributos
+        #region Attributes
 
 
         public Guid Id { get; private set; }
@@ -65,9 +64,9 @@ namespace Munix.Domain.Entities
 
             AddNotifications(
                 new ValidationContract()
-                    .IsEmail(email, "Email", "E-mail inválido")
-                    .HasMinLen(FirstName, 2, "FirstName", "O primeiro nome é necessário ter pelo menos 2 letras")
-                    .HasMinLen(LastName, 2, "LastName", "O ultimo nome é necessário ter pelo menos 2 letras")
+                    .IsEmail(email, "Email", "Invalid E-mail")
+                    .HasMinLen(FirstName, 2, "FirstName", "First name is required at least 2 letters")
+                    .HasMinLen(LastName, 2, "LastName", "Last name is required at least 2 letters")
             );
         }
 
@@ -75,8 +74,8 @@ namespace Munix.Domain.Entities
         {
             AddNotifications(
                 new ValidationContract()
-                    .AreNotEquals(Status, ClientStatus.Delete, "Status", "Não é permitido inativar um cliente deletado")
-                    .AreNotEquals(Status, ClientStatus.Inative, "Status", "Este cliente já está inativo")
+                    .AreNotEquals(Status, ClientStatus.Delete, "Status", "It is not allowed to inactivate a deleted client")
+                    .AreNotEquals(Status, ClientStatus.Inative, "Status", "This client is already inactive")
             );
             Updated = Created;
             Status = ClientStatus.Inative;
@@ -86,7 +85,7 @@ namespace Munix.Domain.Entities
         {
             AddNotifications(
                new ValidationContract()
-                   .AreNotEquals(Status, ClientStatus.Delete, "Status", "Este cliente já está deletado")
+                   .AreNotEquals(Status, ClientStatus.Delete, "Status", "This client is already delete")
            );
 
             Deleted = DateTime.Now;

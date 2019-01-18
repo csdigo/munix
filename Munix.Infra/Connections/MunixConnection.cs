@@ -7,7 +7,7 @@ namespace Munix.Infra.Connections
     {
         public MunixConnection(string commandConnectionString) : base(commandConnectionString, commandConnectionString)
         {
-            // Mapeando os objetos para o uso do FastCrud
+            // Mapping entities for use FastCrud
             new ClientMap();
             new CurrencyTypeMap();
         }

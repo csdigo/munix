@@ -21,7 +21,7 @@ namespace Munix.Domain.Commands.CommandHandler
 
 
         /// <summary>
-        /// Cria um cliente
+        /// Create new Client
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
@@ -41,7 +41,7 @@ namespace Munix.Domain.Commands.CommandHandler
         }
 
         /// <summary>
-        /// Atualiza um cliente
+        /// Update a client
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
@@ -49,12 +49,10 @@ namespace Munix.Domain.Commands.CommandHandler
         {
             var result = new ResultCommand();
 
-            // Retorna o cliente de acordo com o ID
             var client = _repository.GetById(command.Id);
 
             client.Update(command.FirstName, command.LastName, command.Email);
           
-            // Repassando a notificação para o resultado
             result.AddNotifications(client);
 
             if (result.Valid)
@@ -64,7 +62,7 @@ namespace Munix.Domain.Commands.CommandHandler
         }
 
         /// <summary>
-        /// Deleta o cliente
+        /// Delete a client
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
@@ -72,16 +70,14 @@ namespace Munix.Domain.Commands.CommandHandler
         {
             var result = new ResultCommand();
 
-            // Retorna o cliente de acordo com o ID
+            // Return client by Id
             var client = _repository.GetById(command.Id);
 
             client.Delete();
 
 
-            // Repassando a notificação para o resultado
             result.AddNotifications(client);
 
-            // Caso seja valido ele atualiza no banco dados
             if (result.Valid)
                 _repository.Update(client);
 

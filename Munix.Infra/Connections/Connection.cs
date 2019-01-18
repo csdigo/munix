@@ -7,7 +7,7 @@ namespace Munix.Infra.Connections
 
     {
         /// <summary>
-        /// Construtor quando o banco de dados de escrita é diferente de leitura
+        /// Constructor when the writing database is different from reading
         /// </summary>
         /// <param name="commandConnectionString"></param>
         /// <param name="queryconnectionString"></param>
@@ -18,7 +18,7 @@ namespace Munix.Infra.Connections
         }
 
         /// <summary>
-        /// Construtor quando o de leitura é o mesmo de leitura
+        /// Constructor when reading is same As reading
         /// </summary>
         /// <param name="commandConnectionString"></param>
         public Connection(string commandConnectionString)
@@ -38,7 +38,7 @@ namespace Munix.Infra.Connections
         {
             get
             {
-                // TODO Usar o ??
+                // TODO USE  ??
                 return _commandConnection = _commandConnection != null ? _commandConnection : (TCommandConnection)Activator.CreateInstance(typeof(TCommandConnection), _commandConnectionString);
             }
         }
@@ -46,7 +46,7 @@ namespace Munix.Infra.Connections
         {
             get
             {
-                // TODO Usar o ??
+                // TODO USE  ??
                 return _queryConnection = _queryConnection != null ? _queryConnection : (TQueryConnection)Activator.CreateInstance(typeof(TQueryConnection), _queryconnectionString);
             }
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Munix.Domain.Contracts.Repositories
 {
     /// <summary>
-    /// Interface para implementação de CRUD Básico
+    /// Interface for implementation basic CRUD
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface ICrudRepository<T> : IRepository
