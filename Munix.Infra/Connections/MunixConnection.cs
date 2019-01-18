@@ -10,6 +10,7 @@ namespace Munix.Infra.Connections
             // Mapping entities for use FastCrud
             new ClientMap();
             new CurrencyTypeMap();
+            new WalletMap();
         }
     }
 }

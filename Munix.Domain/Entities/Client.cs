@@ -46,11 +46,7 @@ namespace Munix.Domain.Entities
 
         public ClientStatus Status { get; private set; }
 
-        public DateTime Created { get; private set; }
 
-        public DateTime? Deleted { get; private  set; }
-
-        public DateTime Updated { get; private set; }
 
 
         #endregion
