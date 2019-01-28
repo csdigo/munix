@@ -12,6 +12,6 @@ namespace Munix.Domain.Entities
 
         public DateTime? Deleted { get; protected set; }
 
-        public DateTime Updated { get; protected set; }
+        public DateTime? Updated { get; protected set; }
     }
 }

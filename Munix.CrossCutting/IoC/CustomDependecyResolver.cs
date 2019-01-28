@@ -18,17 +18,22 @@ namespace Munix.CrossCutting.IoC
         /// <param name="container"></param>
         public static void Resolve(Container container)
         {
-            // Cliente
+            // Client
             container.Register<IClientRepository, ClientRepository>();
             container.Register<ClientQueryHandler>();
             container.Register<ClientCommandHandler>();
 
-            // Tipo de  Moeda
+            // CurrencyType
             container.Register<ICurrencyTypeRepository, CurrencyTypeRepository>();
             container.Register<CurrencyTypeQueryHandler>();
             container.Register<CurrencyTypeCommandHandler>();
 
-            // Conexão
+            // Wallet
+            container.Register<IWalletRepository, WalletRepository>();
+            container.Register<WalletQueryHandler>();
+            container.Register<WalletCommandHandler>();
+
+            // Connection
             container.RegisterInstance(
                 new MunixConnection(ConfigurationManager.ConnectionStrings["MuniXConnectionString"].ConnectionString)
             );

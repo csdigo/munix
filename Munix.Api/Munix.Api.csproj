@@ -104,6 +104,7 @@
     <Compile Include="BaseController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\CurrencyTypeController.cs" />
+    <Compile Include="Controllers\WalletController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

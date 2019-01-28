@@ -61,7 +61,6 @@
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\CurrencyTypeRepository.cs" />
     <Compile Include="Repositories\FastCrudRepository.cs" />
-    <Compile Include="Repositories\ICrudRepository.cs" />
     <Compile Include="Repositories\WalletRepository.cs" />
   </ItemGroup>
   <ItemGroup>

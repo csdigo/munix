@@ -15,6 +15,7 @@ namespace Munix.Domain.Entities
             Initials = initials;
             Current = current;
             CultureInfoName = cultureInfoName;
+            Created = DateTime.Now;
 
 
             AddNotifications(new ValidationContract()
@@ -29,7 +30,7 @@ namespace Munix.Domain.Entities
 
         #region Attributes  
 
- 
+        public Guid Id { get; private set; }
         public string Name { get; set; }
 
         /// <summary>

@@ -15,6 +15,9 @@ namespace Munix.Infra.Mapping
                .SetProperty(c => c.ClientId, prop => prop.SetDatabaseColumnName("ClientId").SetChildParentRelationship<Client>("Client"))
                .SetProperty(c => c.CurrencyTypeId, prop => prop.SetDatabaseColumnName("CurrencyTypeId").SetChildParentRelationship<CurrencyType>("CurrencyType"))
                .SetProperty(c => c.Status, prop => prop.SetDatabaseColumnName("Status"))
+               .SetProperty(c => c.Created, prop => prop.SetDatabaseColumnName("Created"))
+               .SetProperty(c => c.Updated, prop => prop.SetDatabaseColumnName("Updated"))
+               .SetProperty(c => c.Deleted, prop => prop.SetDatabaseColumnName("Deleted"))
                ;
         }
     }
